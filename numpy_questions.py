@@ -37,26 +37,23 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-  
-    if (len(np.shape(X))!=2):
-        
+    if (len(np.shape(X)) != 2):
         raise ValueError
     if not (isinstance(X, np.ndarray)):
         raise ValueError
 
     max_i = 0
     max_j = 0
-    i=0
-    j=0
-    while i<len(X):
-        while j<len(X[0]):
-            if(X[i][j]>X[max_i][max_j]):
-                max_i=i
-                max_j=j
-            j+=1
-        i+=1
-        j=0
-
+    i = 0
+    j = 0
+    while i < len(X):
+        while j < len(X[0]):
+            if (X[i][j] > X[max_i][max_j]):
+                max_i = i
+                max_j = j
+            j += 1
+        i += 1
+        j = 0
     return (max_i, max_j)
 
 
@@ -79,12 +76,7 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    pi_over_2=1   # (computer science approximation) 
-   
-    for i in range(1,n_terms+1):
-        pi_over_2=pi_over_2*(1+1/((4*i**2)-1))      #wallis formula
-    
-    return (2*pi_over_2)     # quite an inneficient way of calculating pi
-
-#print(max_index(np.array([[[0,1],[2,1],[1,1]],[[0,1],[2,1],[1,1]]])))
-#print(wallis_product(2))
+    pi_over_2 = 1  # (computer science approximation)
+    for i in range(1, n_terms+1):
+        pi_over_2 = pi_over_2 * (1 + 1/((4*i**2) - 1))  # wallis formula
+    return (2 * pi_over_2)  # quite an inneficient way of calculating pi
